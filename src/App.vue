@@ -1,31 +1,26 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-import HelloWorld from "./components/HelloWorld.vue";
-import LocaleSelect from "./components/LocaleSelect.vue";
-import links from "@/data/links.json";
+import { useI18n } from 'vue-i18n'
+import HelloWorld from './components/HelloWorld.vue'
+import LocaleSelect from './components/LocaleSelect.vue'
+import links from '@/data/links.json'
 
-const { t } = useI18n();
+const { t } = useI18n()
 
 const getImgURL = (src: string) => {
-  return new URL(`./assets/svg/${src}.svg`, import.meta.url).href;
-};
+  return new URL(`./assets/svg/${src}.svg`, import.meta.url).href
+}
 </script>
 
 <template>
   <locale-select></locale-select>
-  <a
-    v-for="{ alt, src, href } in links"
-    :key="alt"
-    class="logo-link"
-    :href="href"
-  >
+  <a v-for="{ alt, src, href } in links" :key="alt" class="logo-link" :href="href">
     <img class="logo" :alt="alt" :src="getImgURL(src)" />
   </a>
   <HelloWorld :msg="t('welcome')" />
 </template>
 
 <style lang="scss">
-@use "@/styles/functions/color" as *;
+@use '@/styles/functions/color' as *;
 
 body {
   background-color: color(light);
@@ -44,7 +39,7 @@ body {
 </style>
 
 <style lang="scss" scoped>
-@use "@/styles/functions/color" as *;
+@use '@/styles/functions/color' as *;
 
 .logo {
   height: 56px;
